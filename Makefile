@@ -37,11 +37,11 @@ clean:
 	rm -rf *.o t/*.o libtap.a $(TESTS)
 
 install: libtap.a tap.h
-	sudo cp libtap.a $(PREFIX)/lib
-	sudo cp tap.h $(PREFIX)/include
+	cp libtap.a $(PREFIX)/lib
+	cp tap.h $(PREFIX)/include
 
 uninstall:
-	sudo rm $(PREFIX)/lib/libtap.a $(PREFIX)/include/tap.h
+	rm $(PREFIX)/lib/libtap.a $(PREFIX)/include/tap.h
 
 dist:
 	rm libtap.zip
