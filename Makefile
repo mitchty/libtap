@@ -1,5 +1,5 @@
-CFLAGS = -g -Wall -I.
-CC = gcc
+CFLAGS ?= -g -Wall -I.
+CC ?= gcc
 TESTS = $(patsubst %.c, %, $(wildcard t/*.c))
 
 ifdef ANSI
