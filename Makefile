@@ -1,6 +1,7 @@
 CFLAGS ?= -g -Wall -I.
 CC ?= gcc
 TESTS = $(patsubst %.c, %, $(wildcard t/*.c))
+PREFIX ?= /usr
 
 ifdef ANSI
 	# -D_BSD_SOURCE for MAP_ANONYMOUS
@@ -36,11 +37,11 @@ clean:
 	rm -rf *.o t/*.o libtap.a $(TESTS)
 
 install: libtap.a tap.h
-	sudo cp libtap.a /usr/lib
-	sudo cp tap.h /usr/include
+	sudo cp libtap.a $(PREFIX)/lib
+	sudo cp tap.h $(PREFIX)/include
 
 uninstall:
-	sudo rm /usr/lib/libtap.a /usr/include/tap.h
+	sudo rm $(PREFIX)/lib/libtap.a $(PREFIX)/include/tap.h
 
 dist:
 	rm libtap.zip
